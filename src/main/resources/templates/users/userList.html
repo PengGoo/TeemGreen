@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="kor" xmlns:th="http://thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+        table {
+            width: 100%;
+            border: 1px solid #444444;
+            text-align: center;
+        }
+        th, td {
+            border: 1px solid #444444;
+        }
+    </style>
+</head>
+<body>
+<h1>전체 회원 조회</h1>
+<table>
+  <tr>
+    <th>순번</th>
+    <th>ID</th>
+    <th>나이</th>
+    <th>PW</th>
+    <th>이름</th>
+    <th>연락처</th>
+    <th>한줄 소개</th>
+    <th>프로필</th>
+    <th>카카오톡 링크</th>
+  </tr>
+  <tr th:each="user : ${users}">
+    <td th:text="${user.idx}"></td>
+    <td th:text="${user.user_id}"></td>
+    <td th:text="${user.user_age}"></td>
+    <td th:text="${user.user_pw}"></td>
+    <td th:text="${user.user_name}"></td>
+    <td th:text="${user.user_tel}"></td>
+    <td th:text="${user.user_comment}"></td>
+    <td th:text="${user.user_profile}"></td>
+    <td th:text="${user.user_kakao}"></td>
+  </tr>
+</table>
+</body>
+</html>
