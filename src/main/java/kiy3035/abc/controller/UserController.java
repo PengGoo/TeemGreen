@@ -1,54 +1,54 @@
 package kiy3035.abc.controller;
 
+import kiy3035.abc.domain.Mail;
 import kiy3035.abc.domain.User1;
-import kiy3035.abc.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import kiy3035.abc.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import javax.transaction.Transactional;
+import javax.validation.Valid;
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Map;
 
+@Slf4j
 @Controller
+@Valid
+@RequiredArgsConstructor
 public class UserController {
 
-    private final UserService userService;
+    private final UserRepository userRepository;
 
-    @Autowired
-    public UserController(UserService userService) {
-        this.userService = userService;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    @GetMapping("/")
+    public String signIn() {
+            return "loginOK";
     }
 
-    @GetMapping(value = "/users/new")
-    public String createForm() {
-        return "users/createUserForm";
+    @RequestMapping("/signUp")
+    public String signUp() {
+        return "signup";
     }
 
-    @PostMapping(value = "/users/new")
-    public String create(UserForm form) {
-
-        User1 user = new User1();
-        user.setUser_id(form.getUser_id());
-        user.setUser_age(form.getUser_age());
-        user.setUser_pw(form.getUser_pw());
-        user.setUser_name(form.getUser_name());
-        user.setUser_tel(form.getUser_tel());
-        user.setUser_comment(form.getUser_comment());
-        user.setUser_profile(form.getUser_profile());
-        user.setUser_kakao(form.getUser_kakao());
-
-
-        userService.join(user);
-
-        return "redirect:/";
+    @RequestMapping("/signUp/create")
+    public String create(User1 user) {
+        String rawPassword = user.getPassword();
+        String encPassword = bCryptPasswordEncoder.encode(rawPassword);
+        user.setPassword(encPassword);      // 비밀번호 암호화
+        userRepository.save(user);
+        return "login";
     }
 
-    @GetMapping(value = "/users")
-    public String list(Model model) {
-        List<User1> users = userService.findUsers();
-        model.addAttribute("users", users);
-        return "users/userList";
+    // 비밀번호 찾기 폼
+    @RequestMapping(value = "/find_pw_form.do")
+    public String find_pw_form() throws Exception{
+        return "/find_pw_form";
     }
+
 
 }
