@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class CommutingCotroller {
 
 
-    @RequestMapping("/commuting/helperList")
+    @RequestMapping("/commuting/bootak")
     public String helperList(){
-        return "commuting/helperlist";
+        return "commuting/commuting_bootak";
     }
 
-    @RequestMapping("/commuting/parentsList")
+    @RequestMapping("/commuting/mat")
     public String parentslist(){
-        return "commuting/parentslist";
+        return "commuting/commuting_mat";
     }
 }
