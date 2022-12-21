@@ -20,6 +20,9 @@ public class HomeController {
 
         return "loginOK";
     }
-
+    @RequestMapping("/search")
+    public String search(){
+        return "search/search";
+    }
 }
 
