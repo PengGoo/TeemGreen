@@ -1,0 +1,29 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+<head>
+    <div th:replace="../static/navbar.html :: aa"></div>
+    <div th:replace="../static/navbar.html :: bb"></div>
+
+</head>
+<body>
+
+    <div>
+        <p th:text="${aa}">1</p>
+
+
+        <a class="btn btn-primary" href="/myPage/updateUser" role="button">유저 정보수정</a>
+
+    </div>
+
+<!--   iF(로그인 세션의 ID = 학부모ID) 있으면 출력 없으면 안출력-->
+    <div>
+        <a class="btn btn-primary" href="/myPage/updateParents" role="button">학부모 정보수정</a>
+    </div>
+    <!--   iF(로그인 세션의 ID = 헬퍼ID) 있으면 출력 없으면 안출력-->
+    <div>
+        <a class="btn btn-primary" href="/myPage/updateHelper" role="button">헬퍼 정보수정</a>
+    </div>
+</body>
+</html>

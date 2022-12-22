@@ -12,17 +12,22 @@ public class HomeController {
 
     @GetMapping("/loginForm")
     public String home() {
-        return "login";
+        return "thymeleaf/login";
     }
 
     @GetMapping(value = "/users/join")      // 실험용
     public String login() {
 
-        return "loginOK";
+        return "thymeleaf/loginOK";
     }
+
     @RequestMapping("/search")
-    public String search(){
-        return "search/search";
+    public String search() {
+        return "thymeleaf/search/search";
+    }
+
+    @RequestMapping("/t")
+    public String t() {
+        return "thymeleaf/mypage/test";
     }
 }
-

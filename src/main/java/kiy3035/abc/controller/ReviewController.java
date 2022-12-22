@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ReviewController {
     @RequestMapping("/review/helper")
     public String reHelper(){
-        return "review/rehelper";
+        return "thymeleaf/review/rehelper";
     }
 
     @RequestMapping("/review/parents")
     public String reParents(){
-        return "review/reparents";
+        return "thymeleaf/review/reparents";
     }
 }

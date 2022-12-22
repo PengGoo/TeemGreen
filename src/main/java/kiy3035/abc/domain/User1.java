@@ -16,6 +16,8 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+
+
 @Entity
 public class User1 {
 

@@ -9,11 +9,11 @@ public class CommutingCotroller {
 
     @RequestMapping("/commuting/bootak")
     public String helperList(){
-        return "commuting/commuting_bootak";
+        return "thymeleaf/commuting/commuting_bootak";
     }
 
     @RequestMapping("/commuting/mat")
     public String parentslist(){
-        return "commuting/commuting_mat";
+        return "thymeleaf/commuting/commuting_mat";
     }
 }

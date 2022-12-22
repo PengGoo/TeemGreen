@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class RegistController {
     @RequestMapping("/register/children")
     public String children(){
-        return "register/children";
+        return "thymeleaf/register/children";
     }
 
     @RequestMapping("/register/helper")
     public String helper(){
-        return "register/helper";
+        return "thymeleaf/register/helper";
     }
 
 }

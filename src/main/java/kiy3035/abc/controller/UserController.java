@@ -27,12 +27,12 @@ public class UserController {
 
     @GetMapping("/")
     public String signIn() {
-            return "loginOK";
+            return "thymeleaf/loginOK";
     }
 
     @RequestMapping("/signUp")
     public String signUp() {
-        return "signup";
+        return "thymeleaf/signup";
     }
 
     @RequestMapping("/signUp/create")
@@ -41,13 +41,13 @@ public class UserController {
         String encPassword = bCryptPasswordEncoder.encode(rawPassword);
         user.setPassword(encPassword);      // 비밀번호 암호화
         userRepository.save(user);
-        return "login";
+        return "thymeleaf/login";
     }
 
     // 비밀번호 찾기 폼
     @RequestMapping(value = "/find_pw_form.do")
     public String find_pw_form() throws Exception{
-        return "/find_pw_form";
+        return "thymeleaf/find_pw_form";
     }
 
 
