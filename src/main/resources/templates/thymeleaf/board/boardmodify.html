@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>게시물 작성폼</title>
+</head>
+
+<style>
+    .layout {
+        width : 500px;
+        margin : 0 auto;
+        margin-top : 40px;
+    }
+
+    .layout input {
+        width : 100%;
+        box-sizing : border-box;
+        margin-top : 10px;
+    }
+
+    .layout textarea {
+        width : 100%;
+        margin-top : 10px;
+        min-height : 300px;
+    }
+
+</style>
+
+<body>
+<div class="layout">
+  <!-- http://localhost:8080/board/writedo 로 이동 -->
+  <form th:action="@{/board/update/{post_idx}(post_idx = ${board1.post_idx})}" method="post">
+    제목<input name="post_title" type="text" th:value="${board1.post_title}">
+    내용<textarea name="post_cont" th:text="${board1.post_cont}"></textarea>
+    <button type="submit">수정</button>
+  </form>
+</div>
+</body>
+</html>
