@@ -1,9 +1,7 @@
-package kiy3035.abc.repository;
+package teamgreen.abc.repository;
 
-import kiy3035.abc.domain.User1;
+import teamgreen.abc.domain.User1;
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import javax.transaction.Transactional;
 
 // CRUD 함수를 들고있음
 // @Repository 어노테이션이 없어도 IOC가 된다

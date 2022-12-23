@@ -1,7 +1,7 @@
-package kiy3035.abc.config;
+package teamgreen.abc.config;
 
-import kiy3035.abc.domain.User1;
-import kiy3035.abc.repository.UserRepository;
+import teamgreen.abc.domain.User1;
+import teamgreen.abc.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -16,6 +16,7 @@ public class PrincipalDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String userid) throws UsernameNotFoundException {
+
         System.out.println("userid:" + userid);
         //login 이 호출되면 자동 실행되어 userid가 DB에 있는지 확인한다.
         User1 principal = userRepository.findByUserid(userid);

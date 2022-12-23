@@ -1,16 +1,12 @@
-package kiy3035.abc.domain;
+package teamgreen.abc.domain;
 
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import java.sql.Timestamp;
 
 @Data
 @NoArgsConstructor
@@ -22,9 +18,6 @@ import java.sql.Timestamp;
 public class User1 {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idx;
-
     @Column(name = "USER_ID")
     private String userid;
 

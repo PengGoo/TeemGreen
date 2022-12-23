@@ -1,6 +1,6 @@
-package kiy3035.abc.config;
+package teamgreen.abc.config;
 
-import kiy3035.abc.domain.User1;
+import teamgreen.abc.domain.User1;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

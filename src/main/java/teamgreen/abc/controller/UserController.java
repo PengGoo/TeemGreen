@@ -1,19 +1,14 @@
-package kiy3035.abc.controller;
+package teamgreen.abc.controller;
 
-import kiy3035.abc.domain.Mail;
-import kiy3035.abc.domain.User1;
-import kiy3035.abc.repository.UserRepository;
+import teamgreen.abc.domain.User1;
+import teamgreen.abc.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.transaction.Transactional;
 import javax.validation.Valid;
-import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.Map;
 
 @Slf4j
 @Controller

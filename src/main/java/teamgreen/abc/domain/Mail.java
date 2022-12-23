@@ -1,4 +1,4 @@
-package kiy3035.abc.domain;
+package teamgreen.abc.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

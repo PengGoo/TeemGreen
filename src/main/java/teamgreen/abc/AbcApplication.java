@@ -1,4 +1,4 @@
-package kiy3035.abc;
+package teamgreen.abc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
