@@ -13,8 +13,13 @@ import teamgreen.abc.domain.Review1;
 import teamgreen.abc.service.ReviewService;
 import teamgreen.abc.service.UserService;
 
+import java.time.LocalDateTime;
+
 @Controller
 public class ReviewController {
+
+    LocalDateTime now = LocalDateTime.now();
+    // 현재시간 가져오는 것
 
     @Autowired
     private UserService userService;
@@ -45,7 +50,7 @@ public class ReviewController {
         System.out.println("리뷰 대상자 : " + review1.getReviewhidx());
         System.out.println("리뷰 내용 : " + review1.getReviewcont());
         System.out.println("게시판 분류 : " + review1.getReviewmenuidx());
-        System.out.println("작성 시간 : " + review1.getReviewregdate());
+        System.out.println("작성 시간 : " + review1.getCreatedDate());
 
         return "thymeleaf/review/review_message";
     }
@@ -57,7 +62,24 @@ public class ReviewController {
         return "thymeleaf/review/review_parents";
     }
 
+    @PostMapping("/review/parentsreviewprocess")
+    public String reviewParentsReviewProcess(Review1 review1, Model model) throws Exception {
 
+        reviewService.writeReview(review1);
+
+        model.addAttribute("message", "리뷰 작성이 완료되었습니다");
+        model.addAttribute("searchUrl", "/review/list");
+
+        System.out.println("리뷰글 번호 : " + review1.getReviewidx());
+        System.out.println("제목 : " + review1.getReviewtitle());
+        System.out.println("리뷰 작성자 : " + review1.getReviewpidx());
+        System.out.println("리뷰 대상자 : " + review1.getReviewhidx());
+        System.out.println("리뷰 내용 : " + review1.getReviewcont());
+        System.out.println("게시판 분류 : " + review1.getReviewmenuidx());
+        System.out.println("작성 시간 : " + review1.getCreatedDate());
+
+        return "thymeleaf/review/review_message";
+    }
 
     // 리뷰 목록 (헬퍼 + 학부모 전부)
     @GetMapping("review/list")
