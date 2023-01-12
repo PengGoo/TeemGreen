@@ -16,7 +16,7 @@ import java.util.Date;
 )
 @Getter
 @NoArgsConstructor
-public class Review1 extends BaseTimeEntity {
+public class Review1 extends BaseTimeEntity {   // BaseTimeEntity를 상속함으로써 사용 가능!
 
     // 리뷰 글번호
     @Id // primary key를 의미

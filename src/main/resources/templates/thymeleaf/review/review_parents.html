@@ -34,7 +34,7 @@
     <!-- 식이가 해둔 유저정보 가져오기를 나도 해야 함.. ㅎㅎ-->
     <tr>
       <td>작성자</td>
-      <td><input name="reviewhidx" value="나는헬퍼"></td>
+      <td><input name="reviewhidx" th:value="${userData.userid}" readonly/></td>
     </tr>
 
     <tr>
@@ -51,7 +51,7 @@
       <td>게시판 분류</td>
       <td>
         <select name="reviewmenuidx" size="1">
-          <option value="1">2. 학부모를 리뷰 (헬퍼가 작성)</option>
+          <option value="1">1. 학부모를 리뷰 (헬퍼가 작성)</option>
         </select>
       </td>
     </tr>

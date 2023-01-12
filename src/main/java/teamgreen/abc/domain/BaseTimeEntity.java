@@ -5,24 +5,24 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import javax.persistence.EntityListeners;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
+// JPA Auditing : DB에 생성시간, 수정시간 넣을 수 있게 해줌
 @Getter
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 public abstract class BaseTimeEntity {
 
     @CreatedDate
+    @Column(name = "CREATED_DATE")
     private String createdDate;
 
     @LastModifiedDate
+    @Column(name = "MODIFIED_DATE")
     private String modifiedDate;
 
+    // 밑에 2개는 날짜 출력 형식 바꾸는 것
     @PrePersist
     public void onPrePersist(){
         this.createdDate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"));

@@ -34,8 +34,8 @@
       <td th:text="${review1.reviewidx}"></td>
       <td>분류</td>
       <td th:switch="${review1.reviewmenuidx}">
-        <span th:case="1">학부모를 리뷰</span>
-        <span th:case="2">헬퍼를 리뷰</span>
+        <span th:case="1">1. 학부모를 리뷰 (헬퍼가 작성)</span>
+        <span th:case="2">2. 헬퍼를 리뷰 (학부모가 작성)</span>
       </td>
     </tr>
     <tr>
