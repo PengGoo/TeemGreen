@@ -2,74 +2,89 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
   <title>학부모 리뷰 작성폼</title>
-  <link rel="stylesheet" type="text/css" href="/css/Eclipse_Form.css"/>
+  <link rel="stylesheet" type="text/css" href="/css/Review_list.css"/>
 
   <!-- 식이가 만든 navi -->
   <div th:replace="../static/navbar.html :: aa"></div>
   <div th:replace="../static/navbar.html :: bb"></div>
 
-  <style>
-    h2 {text-align : center;}
-  </style>
 </head>
 <body>
-<br>
-<h2><b>학부모 리뷰 (헬퍼가 작성)</b></h2>
-<br>
-<form action="/review/parentsreviewprocess" method="post" >
-  <table>
-    <tr>
-      <td>제목</td>
-      <td><input name="reviewtitle" type="text"></td>
-    </tr>
+<section class="notice">
+  <div class="page-title">
+    <div class="container">
+      <h3><b>학부모 리뷰 (헬퍼가 작성)</b></h3>
+    </div>
+  </div>
+  <br>
 
-    <!--<tr>
-      <td>현재시간</td>
-      <td><p name="reviewregdate" id="clock"></p></td>
-      <td><input name="reviewregdate" value="2023-01-05"></input></td>
-    </tr>-->
 
-    <!-- 임시로 일단 작성자 넣어둠 -->
-    <!-- 식이가 해둔 유저정보 가져오기를 나도 해야 함.. ㅎㅎ-->
-    <tr>
-      <td>작성자</td>
-      <td><input name="reviewhidx" th:value="${userData.userid}" readonly/></td>
-    </tr>
+  <form action="/review/parentsreviewprocess" method="post" >
+    <div id="board-list">
+      <div class="container">
+        <table class="board-table">
+          <tbody>
+            <tr>
+              <td>제목</td>
+              <td><input name="reviewtitle" type="text"></td>
+            </tr>
 
-    <tr>
-      <td>리뷰 대상자</td>
-      <td><input name="reviewpidx" placeholder="리뷰할 학부모를 적어주세요"></td>
-    </tr>
+            <!--<tr>
+              <td>현재시간</td>
+              <td><p name="reviewregdate" id="clock"></p></td>
+              <td><input name="reviewregdate" value="2023-01-05"></input></td>
+            </tr>-->
 
-    <tr>
-      <td>내용</td>
-      <td><textarea name="reviewcont"></textarea></td>
-    </tr>
+            <!-- 임시로 일단 작성자 넣어둠 -->
+            <!-- 식이가 해둔 유저정보 가져오기를 나도 해야 함.. ㅎㅎ-->
+            <tr>
+              <td>작성자</td>
+              <td><input name="reviewhidx" th:value="${userData.userid}" readonly/></td>
+            </tr>
 
-    <tr>
-      <td>게시판 분류</td>
-      <td>
-        <select name="reviewmenuidx" size="1">
-          <option value="1">1. 학부모를 리뷰 (헬퍼가 작성)</option>
-        </select>
-      </td>
-    </tr>
+            <tr>
+              <td>리뷰 대상자</td>
+              <td><input name="reviewpidx" placeholder="리뷰할 학부모를 적어주세요"></td>
+            </tr>
 
-    <tr>
-      <td>리뷰 추천수</td>
-      <td><input name="reviewrecommend" value="0" readonly></input></td>
-    </tr>
+            <tr>
+              <td>내용</td>
+              <td><textarea name="reviewcont"></textarea></td>
+            </tr>
 
-    <tr>
-      <td colspan="2">
-        <button type="submit">작성</button>
-        <button type="reset">초기화</button>
-        <button type="button" onclick="history.go(-1);">이전으로</button>
-        <button type="button" onclick="location.href = '/'">홈으로</button>
-      </td>
-    </tr>
-  </table>
+            <tr>
+              <td>게시판 분류</td>
+              <td>
+                <select name="reviewmenuidx" size="1">
+                  <option value="1">1. 학부모를 리뷰 (헬퍼가 작성)</option>
+                </select>
+              </td>
+            </tr>
+
+            <tr>
+              <td>리뷰 추천수</td>
+              <td><input name="reviewrecommend" value="0" readonly></input></td>
+            </tr>
+
+            <tr>
+              <td colspan="2">
+                <button type="submit">작성</button>
+                &nbsp;&nbsp;&nbsp;<button type="reset">초기화</button>
+                &nbsp;&nbsp;&nbsp;<button type="button" onclick="history.go(-1);">이전으로</button>
+                &nbsp;&nbsp;&nbsp;<button type="button" onclick="location.href = '/'">홈으로</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </form>
+</section>
+</body>
+</html>
 
   <!-- 작성시간 관련 스크립트 -->
   <script>
@@ -93,7 +108,4 @@
     }
     clock();
     setInterval(clock, 1000); // 1초마다 실행
-</script>
-</form>
-</body>
-</html>
+  </script>

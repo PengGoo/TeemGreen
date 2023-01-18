@@ -140,8 +140,18 @@ public class ReviewController {
     @GetMapping("/review/view")
     public String reviewView(Model model, Long reviewidx) {
 
+        // TODO: 이곳에, 로그인한 유저가 있으면 반환, 없으면 예외 발생
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        UserDetails  user1 =(UserDetails) principal;
+        String userName=user1.getUsername();
+
+        User1 userDetail = userService.getUser(userName);
+        model.addAttribute("userData",userDetail);
+        
+        //------------위에는 userData 가져오기용, 밑에는 상세 페이지
+        
         model.addAttribute("review1", reviewService.reviewView(reviewidx));
-        return "thymeleaf/review/review_view";
+        return "thymeleaf/review/review_view_TEST";
     }
 
     // 리뷰글 삭제
