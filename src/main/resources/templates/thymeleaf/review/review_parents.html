@@ -71,10 +71,10 @@
 
             <tr>
               <td colspan="2">
-                <button type="submit">작성</button>
-                &nbsp;&nbsp;&nbsp;<button type="reset">초기화</button>
-                &nbsp;&nbsp;&nbsp;<button type="button" onclick="history.go(-1);">이전으로</button>
-                &nbsp;&nbsp;&nbsp;<button type="button" onclick="location.href = '/'">홈으로</button>
+                <button type="submit" class="btn btn-primary" onclick="return confirm('학부모 리뷰를 작성합니다')">작성</button>
+                &nbsp;&nbsp;&nbsp;<button type="reset" class="btn btn-secondary">초기화</button>
+                &nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-warning" onclick="history.go(-1);">이전으로</button>
+                &nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-success" onclick="location.href = '/'">홈으로</button>
               </td>
             </tr>
           </tbody>

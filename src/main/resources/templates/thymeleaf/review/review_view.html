@@ -68,19 +68,49 @@
           </tr>
 
           <!-- 아이디가 작성자랑 같지 않으면 수정, 삭제가 불가능하게 만들어야 함 -->
-          <tr th:if="${principal.userid} == ${review1.reviewhidx} or ${principal.userid} == ${review1.reviewpidx}">
-            <td colspan="4">
+          <tr>
+            <td colspan="4" th:if="${userData.userid} == ${review1.reviewhidx} or ${userData.userid} == ${review1.reviewpidx}">
               <!-- @GetMapping("/board/delete") + '원하는 값 = ${~~~}' -->
-              &nbsp;&nbsp;&nbsp;<a th:href="@{/review/delete(reviewidx = ${review1.reviewidx})}">글 삭제</a>
-              &nbsp;&nbsp;&nbsp;<a th:href="@{/review/modify/{reviewidx}(reviewidx = ${review1.reviewidx})}">글 수정</a>
+              <!-- <a>태그에서 onclick="return confirm"하면 알림창으로 yes/no 뜸 -->
+              <a th:href="@{/review/delete(reviewidx = ${review1.reviewidx})}" onclick="return confirm('리뷰를 정말 삭제하시겠습니까?')">리뷰 삭제 [알림]</a>
+              &nbsp;&nbsp;&nbsp;<a th:href="@{/review/modify/{reviewidx}(reviewidx = ${review1.reviewidx})}" onclick="return confirm('리뷰를 수정하시겠습니까?')">리뷰 수정 [알림]</a>
+              &nbsp;&nbsp;&nbsp;<a href="javascript:window.history.back();">이전으로</a>
+
+              <!-- &nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-secondary" onclick="history.go(-1);">이전으로</button> -->
+
+              <!--
+              <br><br>
+              &nbsp;&nbsp;&nbsp;<button type="button" id="reviewDelete" class="btn btn-danger" th:onclick="|location.href='@{/review/delete(reviewidx = ${review1.reviewidx})}'|" >리뷰 삭제 2 - 알림창 X</button>
+              &nbsp;&nbsp;&nbsp;<button type="button" id="reviewModify" class="btn btn-warning" >리뷰 수정 2 - 알림창 X</button>
               &nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-secondary" onclick="history.go(-1);">이전으로</button>
+              -->
             </td>
           </tr>
-
         </tbody>
       </table>
     </div>
   </div>
 </section>
+
+<!--
+<script th:inline="javascript">
+  /*<![CDATA[*/
+    document.getElementById("reviewModify").onclick = function () {
+      if(confirm('리뷰를 수정하시겠습니까?') == true) {
+        location.href='@{/review/modify/{reviewidx}(reviewidx = [[ ${review1.reviewidx} ]] )}'
+      } else {
+        return false;
+      };
+    }
+
+    document.getElementById("reviewDelete").onclick = function () {
+      if(confirm('리뷰를 삭제하시겠습니까?') == true) {
+      } else {
+        return false;
+      };
+    }
+  /*]]>*/
+</script> -->
+
 </body>
 </html>

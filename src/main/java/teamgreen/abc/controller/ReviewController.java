@@ -148,10 +148,11 @@ public class ReviewController {
         User1 userDetail = userService.getUser(userName);
         model.addAttribute("userData",userDetail);
         
-        //------------위에는 userData 가져오기용, 밑에는 상세 페이지
+        //------------ 위에는 userData 가져오기용 (principal로 대체 가능)
+        //------------ 밑에는 상세 페이지
         
         model.addAttribute("review1", reviewService.reviewView(reviewidx));
-        return "thymeleaf/review/review_view_TEST";
+        return "thymeleaf/review/review_view";
     }
 
     // 리뷰글 삭제

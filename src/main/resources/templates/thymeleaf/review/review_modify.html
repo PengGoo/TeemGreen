@@ -63,7 +63,8 @@
                     </tr>
                     <tr>
                         <td colspan="4">
-                            <button type="submit" class="btn btn-primary">수정</button>
+                            <!-- <button>태그에도 onclick="return confirm~~" 붙이면 알림창 뜸! -->
+                            <button type="submit" class="btn btn-primary" onclick="return confirm('리뷰를 수정합니다')">수정 [알림]</button>
                             &nbsp;&nbsp;&nbsp;<button type="reset" class="btn btn-secondary">초기화</button>
                             &nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-warning" onclick="history.go(-1);">이전으로</button>
                             &nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-success" onclick="location.href = '/'">홈으로</button>
